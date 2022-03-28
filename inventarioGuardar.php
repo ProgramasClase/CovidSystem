@@ -8,15 +8,9 @@ $precioVenta=$_POST["precioVenta"];
 $cantidad=$_POST["cantidad"];
 $imagen=addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
 
-$db = mysqli_select_db($connection, $datab);
-if(!$db){
-    echo "no se ha encontrado la tabla";
-}else{
-    echo "<h3>Tabla seleccionada</h3>";
-}
+
 $instrucction_SQL="INSERT INTO inventario(idProducto,categoria,nomProducto,precioProveedor,precioVenta,cantidad,imagen)VALUES (null,'$categoria','$nomProducto','$precioProveedor','$precioVenta','$cantidad','$imagen')";
 $resultado=  mysqli_query($connection, $instrucction_SQL);
-
 
 
 $consulta="SELECT *FROM inventario";

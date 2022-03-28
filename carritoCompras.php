@@ -8,17 +8,46 @@
     </head>
 
     <body>
-        <?php 
-        $db = mysqli_select_db($connection, $datab);
-        if(!$db){
-            echo "no se ha encontrado la tabla";
-        }
-        $busqueda=  mysqli_query($connection,"SELECT * FROM inventario");
-        $numero=mysqli_num_rows($busqueda);
-        ?>
+        
         <div class="menu">Menu</div>
-        <div class="lateral">Laterial </div>
+        <!--Menu para las categorias, dependiendo de la seleccione es la que va a funcionar-->
+        <div class="lateral">Laterial 
+            
+            <form id="formulario" name="formulario" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>">
+                <select name="cat" id="cat" class="cat">
+                    <option value="general" name="general" id="general" >Todos los productos</option>
+                    <option value="Arte y Manualidades" name="arte" id="arte" >Arte y manualidades</option>
+                    <option value="Articulos escolares" name="escolares" id="escolares">Articulos escolares</option>
+                    <option value="Oficina" name="Oficina" id="Oficina">Oficina</option>
+                    <option value="Regalos y fiesta" name="regalos" id="regalos">Regalos y fiesta</option>
+                </select>
+                <input type="submit" class="categoria" name="categoria" value="Buscar categoria"/>
+            </form>
+            <?php
+                $busqueda=  mysqli_query($connection,"SELECT * FROM inventario ");
+                $numero=mysqli_num_rows($busqueda);
+                if(isset($_REQUEST['cat'])){
+                    echo "el boton categoria fue presionado";
+                    if($_POST['cat']=="general"){
+                        $busqueda=  mysqli_query($connection,"SELECT * FROM inventario");
+                        $numero=mysqli_num_rows($busqueda);
+                        echo $_POST['cat'];
+                    }else{
+                        $busqueda=  mysqli_query($connection,"SELECT * FROM inventario WHERE categoria='$_POST[cat]'");
+                        $numero=mysqli_num_rows($busqueda);
+                        echo $_POST['cat'];
+                    }
+                }else{
+                    $busqueda=  mysqli_query($connection,"SELECT * FROM inventario ");
+                    $numero=mysqli_num_rows($busqueda);
+                    echo 'boton no presionado';
+
+                    
+                }
+            ?>
+        </div>
         <div class="cuerpo">
+            <!--Envia los datos de la compra a la base de datos y si se envia correctamente imprimie agregado al carrito-->
             <?php
             if(isset($_POST['enviar'])){
                 $bus=mysqli_query($connection,"SELECT * FROM pedido_datos");
@@ -37,11 +66,12 @@
                 $fecha=date('Y-m-d h:i:s ',time());
                 $instrucction_SQL="INSERT INTO pedido_datos(idpedido_Datos,idReferencia,cantidad,idProducto,nomProducto,precio,total,fecha)VALUES ('$idpedidoDatos','$idReferencia','$cantidad','$idProducto','$nomProducto','$precio','$total','$fecha')";
                 $resultado=  mysqli_query($connection, $instrucction_SQL);
-                echo 'agregado al carrito';
+                echo 'agregado al carrito '. $nomProducto;
             }
-            
             }
             ?>
+            
+            <!--Impreme los objetos del inventario con un ciclo while-->
             <h5>Resultados (<?php echo $numero?>)</h5>
             <?php while ($resultado =  mysqli_fetch_array($busqueda)){ ?>
             <div class="cuadro">
