@@ -1,12 +1,12 @@
 .menu{
-    background-color: #cc6600;
+    background-color:#E67E22 ;
     float: left;
     height: 40px;
     width: 100%;
     position: fixed;
 }
 .lateral{
-    background-color: #ff6600;
+    background-color:#E67E22 ;
     float: left;
     height: 700px;
     width: 10%;
@@ -16,7 +16,7 @@
 }
 .cuerpo{
     text-align: center;
-    background-color: #cccc00;
+    
     float: left;
     height: 100%;
     width: 80%;
@@ -26,7 +26,7 @@
     
 }
 .cuadro{
-    background-color: #66cc00;
+    background-color:#F7DC6F;
     float: left;
     height: 100%;
     width: 31%;
@@ -36,7 +36,7 @@
 }
 .descripcion{
     text-align: center;
-    background-color: #9999ff;
+    background-color:#FFD700;
     margin-left: auto;
     height: 75%;
     width: 50%;
@@ -49,12 +49,12 @@ img{
     margin:0 auto;
 }
 body{
-    background-color:#ffff99;
+    background-color:#F4D03F;
 }
 .enviar{
-    background-color:#6666ff; 
+    background-color:#FF7F50; 
 }
 #cantidad{
     width: 40px;
-    background-color: greenyellow;
+    background-color:#ABEBC6;
 }
