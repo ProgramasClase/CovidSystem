@@ -1,0 +1,109 @@
+@font-face{
+	font-family:principal;
+	src:url(fonts/lato/Lato-Regular.ttf);
+}
+    /*estilo para el fondo de la pagina*/ 
+html{
+	background-color:#4e7ea5;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size: 100% 100%;
+	background-attachment:fixed;
+}
+  
+#contenedor-form{
+	width:450px;
+	background-color:rgba(0,0,0,0.51);
+	padding: 35px 45px 35px 50px;
+	margin:auto;
+	margin-top:65px;
+	border-radius:9px;
+	
+}
+ 
+ .input{
+	 color:#3c3c3c;
+	 font-family:principal;
+	 font-size:18px;
+	 line-height:22px;
+	 background-color:#fbfbfb;
+	 padding: 13px 13px 13px 54px;
+	 margin-bottom:10px;
+	 width:100%;
+	 box-sizing:border-box;
+	 
+ }
+  /* recuadro nombre */ 
+ #nombre{
+	 background-size: 30px 30px;
+	 background-position: 11px 11px;
+	 background-repeat: no-repeat;
+	 
+ }
+  /*recuadro email */ 
+  #email{
+	 background-size: 30px 30px;
+	 background-position: 11px 11px;
+	 background-repeat: no-repeat;
+	 
+ }
+
+ /*estilo para el BOTON ENVIAR*/ 
+ #enviar{
+	font-family:principal;
+	float:left;
+	width:100%;
+	border: #fff solid 4px;
+	cursor:pointer;
+	background-color:#00a0f4;
+	color:blue;
+	font-size:28px;
+	font-weight:670;
+	padding-top:22px;
+	padding-bottom:22px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	 
+ }
+ /*estilo para el BOTON ENVUAR EFECTO */ 
+ #enviar:hover{
+	 background-color:rgba(0,0,0,0);
+	 color: #000;
+	 
+ }
+
+/*estilo para el BOTON ENVIAR CUANDO ESTA SOBRE EL EL  PUNTERO */ 
+.enviar:hover .transicion{
+	width:100%;
+	background-color:#33de80;
+	
+}
+/*estilo para CUANDO MUESTRE ERROR*/ 
+input.error, textarea.error{
+	 font-family:principal;
+	 font-size:18px;
+	 line-height:22px;
+	 background-color:#F78181;
+	 padding: 13px 13px 13px 54px;
+	 margin-bottom:10px;
+	 width:100%;
+	 box-sizing:border-box;
+	 border:0px;
+}
+/*estilo DE COLOR PARA LOS ERRORES EN NOMBRE, EMAIL Y TELEFONO  */ 
+input.error::-webkit-input-placeholder{
+	color:white;
+
+/*estilo ADICIONAL PARA LOGRAR LA CARACTERISTICA RESPONSIVE EN EL FORMULARIO */ 
+@media only screen and (max-width: 580px) {
+  #contenedor-form{
+    left: 3%;
+    margin-right: 3%;
+    width: 88%;
+    margin-left: 0;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+}
